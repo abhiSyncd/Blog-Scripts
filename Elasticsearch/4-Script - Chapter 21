@@ -1,0 +1,147 @@
+
+
+#################################### Section 1 : Insert Script : Nested Query ####################################
+//i)Create database of name 'company'
+PUT company
+
+//ii)Creating 'departmentWithEmployees' type and mapping fields
+PUT company/departmentWithEmployees/_mapping
+{
+  "properties": {
+    "departmentName"   : {"type": "text" },
+  
+    "employee" :{
+        "type": "nested",               //'employee' field mapped as NESTED Data-type
+        "properties": {
+           "employeeName"   : {"type": "text" },
+           "employeeCity"   : {"type": "text" }
+        }
+     }  
+  }
+}
+
+
+//iii)Inserting documents in 'department'type
+PUT company/departmentWithEmployees/1
+{
+  "departmentName" : "Finance",
+  "employee" : [
+    {
+      "employeeName" : "Naveen",
+      "employeeCity" : "Bangalore"
+    }
+  ]
+}
+
+PUT company/departmentWithEmployees/2
+{
+  "departmentName" : "IT",
+  "employee" : [
+    {
+      "employeeName" : "Vinod",
+      "employeeCity" : "Indore"
+    },
+    {
+      "employeeName" : "Nitin",
+      "employeeCity" : "Mumbai"
+    },
+    {
+      "employeeName" : "Abhishek",
+      "employeeCity" : "Patna"
+    }
+  ]
+}
+
+
+#################################### Section 2 : Insert Script : Joining Query ####################################
+
+
+//i)Create database of name 'company'
+PUT company
+
+
+//Creating 'departmentWithEmployees' type and mapping fields
+PUT company/departmentWithEmployees/_mapping
+{
+  "properties": {
+     "departmentName" : {"type": "text" },
+     "employeeName"   : {"type": "text" },
+     "employeeCity"   : {"type": "text" },
+     
+      "joinField": { 
+          "type": "join",
+          "relations": {
+            "department": "employee" 
+          }
+        }
+  }
+}
+
+
+//Inserting Department 1 in departmentEmployee with _id = 1
+PUT company/departmentWithEmployees/1?refresh
+ {
+  "departmentName": "Finance",
+  "joinField": {
+    "name": "department"
+  }
+}
+
+
+//Inserting Department 2 in departmentEmployee _id = 2
+PUT company/departmentWithEmployees/2?refresh
+ {
+  "departmentName": "IT",
+  "joinField": {
+    "name": "department"
+  }
+}
+
+
+//Inserting Employee 1 in departmentEmployee _id = 10 
+PUT company/departmentWithEmployees/10?routing=1&refresh
+{
+  "employeeName": "Naveen",
+  "employeeCity": "Bangalore",
+  "joinField": {
+    "name": "employee",
+    "parent": "1"
+  }
+}
+
+
+
+//Inserting Employee 2 in departmentEmployee _id = 11 
+PUT company/departmentWithEmployees/11?routing=2&refresh
+{
+  "employeeName": "Vinod",
+  "employeeCity": "Indore",
+  "joinField": {
+    "name": "employee",
+    "parent": "2"
+  }
+}
+
+//Inserting Employee 3 in departmentEmployee _id = 12 
+PUT company/departmentWithEmployees/12?routing=2&refresh
+{
+  "employeeName": "Nitin",
+  "employeeCity": "Mumbai",
+  "joinField": {
+    "name": "employee",
+    "parent": "2"
+  }
+}
+
+
+//Inserting Employee 4 in departmentEmployee _id = 12 
+PUT company/departmentWithEmployees/13?routing=2&refresh
+{
+  "employeeName": "Abhishek",
+  "employeeCity": "Patna",
+  "joinField": {
+    "name" : "employee",
+    "parent": "2"
+  }
+}
+

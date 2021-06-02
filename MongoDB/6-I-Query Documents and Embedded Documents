@@ -1,0 +1,42 @@
+----------------------------------------------- Oracle Create Table Script -----------------------------------------------
+
+CREATE TABLE EMPLOYEE
+(
+    EMPLOYEE_ID  NUMBER(9) NOT NULL,
+    NAME         VARCHAR2(20),
+    CITY         VARCHAR2(20),
+    HIREDATE     TIMESTAMP,
+    SALARY       NUMBER(9),
+    DEPARTMENT   VARCHAR2(20)
+);
+
+----------------------------------------------- Oracle Insert Script -----------------------------------------------
+
+INSERT INTO EMPLOYEE ( EMPLOYEE_ID, NAME ,CITY ,HIREDATE , SALARY , DEPARTMENT )
+VALUES (1, 'Naveen', 'Bangalore' , TO_DATE('2005-01-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS') , 100000 , 'Finance' );
+
+#Similarly add below row values
+(2, 'Vinod',    'Indore', TO_DATE('2010-01-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'),   50000, 'IT');
+(3, 'Nitin',     'Mumbai', TO_DATE('2010-01-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'),  50000, 'IT');
+(4, 'Abhishek', 'Patna', TO_DATE('2015-01-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'),    20000, 'IT');
+(5, 'Saurav',   'Patna',   TO_DATE('2017-01-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'),  10000, 'HR');
+(6, 'Gaurav',   'Patna',   TO_DATE('2017-01-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'),  5000,  'HR');
+
+
+----------------------------------------------- MongoDB Insert Script -----------------------------------------------
+
+db.employee.insertMany( [
+{  _id : 1,   name  : "Naveen",    address :{city : "Bangalore" , locality : "Sarjapur"},       department :  "Finance"  , salary :  100000  , "hireDate" : ISODate("2005-01-01T08:00:00Z") },
+{  _id : 2,   name  : "Vinod",     address :{city : "Indore"    , locality : "Vijay nagar"},    department :  "IT"       , salary :  50000   , "hireDate" : ISODate("2010-01-01T08:00:00Z") },
+{  _id : 3,   name  : "Nitin",     address :{city : "Mumbai"    , locality : "Thane"},          department :  "IT"       , salary :  50000   , "hireDate" : ISODate("2010-01-01T08:00:00Z") },
+{  _id : 4,   name  : "Abhishek",  address :{city : "Patna"     , locality : "Boring Road"},    department :  "IT"       , salary :  20000   , "hireDate" : ISODate("2015-01-01T08:00:00Z") },
+{  _id : 5,   name  : "Saurav",    address :{city : "Patna"     , locality : "Kankarbagh"},     department :  "HR"       , salary :  10000   , "hireDate" : ISODate("2017-01-01T08:00:00Z") },
+{  _id : 6,   name  : "Gaurav",    address :{city : "Patna"     , locality : "Krishna nagar"},  department :  "HR"       , salary :  5000    , "hireDate" : ISODate("2017-01-01T08:00:00Z") }
+])
+
+
+----------------------------------------------- MongoDB Insert Script For "Element Query Operators" -----------------------------------------------
+db.employee.insertMany( [
+{  _id : 7,   name  : "Santosh-Interviewed",  "hireDate" : null },
+{  _id : 8 }
+])	

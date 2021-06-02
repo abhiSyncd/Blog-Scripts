@@ -1,0 +1,123 @@
+
+
+############################################ Oracle  Insert Scripts ############################################
+CREATE TABLE SUBJECT
+(
+    SUBJECT_ID             NUMBER(9)      NOT NULL   PRIMARY KEY,
+    COURSE_NAME            VARCHAR2(50),
+    COURSE_START_DATE      TIMESTAMP,
+    COURSE_DESCRIPTION     VARCHAR2(100),
+    STUDENTS_ENROLLED      NUMBER(5),
+    PROFESSOR_NAME         VARCHAR2(20),
+    PROFESSOR_DEPARTMENT   VARCHAR2(20),
+    PROFESSOR_EMAIL        VARCHAR2(20)
+    
+);
+
+INSERT INTO SUBJECT ( SUBJECT_ID, COURSE_NAME ,COURSE_START_DATE  ,COURSE_DESCRIPTION , STUDENTS_ENROLLED  , PROFESSOR_NAME ,PROFESSOR_DEPARTMENT,PROFESSOR_EMAIL)
+VALUES (1, 'Data Structure And Algorithms' , TO_DATE('2019-01-01', 'YYYY-MM-DD') , 'Study Of Data Structures In Java Programming' , 40 , 'Cormen' , 'CS' , 'cormen@mit.com' );
+
+VALUES (2, 'Computer Programming' , TO_DATE('2018-01-01', 'YYYY-MM-DD') , '' , 35 , 'Dennis Ritchie' , 'CS' , 'dennis@mit.com' );
+VALUES (3, 'Computer Networks' , TO_DATE('2018-01-01', 'YYYY-MM-DD') , 'Study Of Sharing Resources Among Computers' , 30 , 'Andrew Tanenbaum' , 'IT' , 'andrew@mit.com' );
+VALUES (4, 'Digital Electronics' , TO_DATE('2017-01-01', 'YYYY-MM-DD') , 'Study Of Digital Signals' , 25 , 'Tesla' , 'ECE' , 'tesla@mit.com' );
+VALUES (5, 'Mathematics' , TO_DATE('2016-01-01', 'YYYY-MM-DD') , 'Study Of Algebra,Calculus,Trignometry' , 20 , 'Aryabhatta' , 'Math' , '' );
+
+
+############################################ Elastcisearch Scripts ############################################
+PUT courses 
+
+PUT /courses/subject/_mapping
+{
+  "properties": {
+     "course_name"        :  {"type": "text" },
+    
+     "course_start_date"  : {"type": "date" },
+    
+     "course_description" : {"type": "text" },
+		
+     "students_enrolled"  : {"type": "integer"},
+     
+     "professor": { 
+        "type" : "object",   
+        "properties": {
+           "name"       : {"type": "text" },
+           "department" : {"type": "text" },
+           "email"      : {"type": "keyword" }
+          }
+        }
+      }
+
+}
+                      
+
+
+                                                                                    
+PUT /courses/subject/1
+{
+   "course_name"        : "Data Structure And Algorithms",
+   "course_start_date"  : "2019-01-01",
+   "course_description" : "Study Of Data Structures In Java Programming",
+   "students_enrolled"  :40,
+   "professor": {
+       "name"       : "Cormen",
+       "department" : "CS",
+       "email"      : "cormen@mit.com"
+    }
+    	
+}                                                                                      
+
+PUT /courses/subject/2
+{
+    "course_name"        : "Computer Programming",
+    "course_start_date"  : "2018-01-01",
+    "course_description" : "",
+    "students_enrolled"  : 35,
+    "professor": {
+        "name"       : "Dennis Ritchie",
+        "department" : "CS",
+        "email"      : "dennis@mit.com"
+        }
+}  
+
+
+PUT /courses/subject/3
+{
+    "course_name"        : "Computer Networks",
+    "course_start_date"  : "2018-01-01",
+    "course_description" : "Study Of Sharing Resources Among Computers",
+    "students_enrolled"  : 30,
+    "professor": {
+        "name"       : "Andrew Tanenbaum",
+        "department" : "IT",
+        "email"      : "andrew@mit.com"
+        }
+} 
+                                                           
+
+PUT /courses/subject/4
+{
+    "course_name"        : "Digital Electronics",
+    "course_start_date"  : "2017-01-01",
+    "course_description" : "Study Of Digital Signals",
+    "students_enrolled"  : 25,
+    "professor": {
+        "name"       : "Tesla",
+        "department" : "ECE",
+        "email"      : "tesla@mit.com"
+        } 
+}                                                                                
+
+
+
+PUT /courses/subject/5
+{
+    "course_name"        : "Mathematics",
+    "course_start_date"  : "2016-01-01",
+    "course_description" : "Study Of Algebra,Calculus,Trignometry",
+    "students_enrolled"  : 20,
+    "professor": {
+        "name"       : "Aryabhatta",
+        "department" : "Math",
+        "email"      : ""
+        }
+}  

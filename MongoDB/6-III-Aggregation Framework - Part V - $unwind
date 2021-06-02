@@ -1,0 +1,20 @@
+db.students.insertMany([
+{
+    "_id"         : 1,
+    "name"        : "CSE 1st Semester",
+	"professors"  : ["Bill Gates" , "Steve Jobs"],
+    "students"  : [  
+        { "rollNo" : "CSE1", "name" : "Mark",  "score" : 100 },
+        { "rollNo" : "CSE2", "name" : "Kevin", "score" : 80 }
+        ]
+},
+{
+    "_id"         : 2,
+    "name"        : "ECE 1st semester",
+	"professors"  : ["Tesla" , "Steve Jobs"],
+    "students"    : [  
+        { "rollNo" : "ECE1",  "name" : "Santa", "score" : 60 },      
+        { "rollNo" : "ECE2", "name"  : "Banta", "score"  : 40 }       
+        ]
+}
+]);

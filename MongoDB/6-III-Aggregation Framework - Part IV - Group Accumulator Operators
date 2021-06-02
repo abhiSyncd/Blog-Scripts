@@ -1,0 +1,33 @@
+
+----------------------------------------------- Oracle Insert Script -----------------------------------------------
+
+CREATE TABLE EMPLOYEE(
+  EMPLOYEE_ID  NUMBER(9) NOT NULL,
+  NAME         VARCHAR2(20),
+  CITY         VARCHAR2(20),
+	DEPARTMENT   VARCHAR2(20),
+	SALARY       NUMBER(9),
+  HIREDATE     TIMESTAMP
+);
+
+
+INSERT INTO EMPLOYEE ( EMPLOYEE_ID, NAME ,CITY ,DEPARTMENT , SALARY , HIREDATE )
+VALUES (1, 'Naveen', 'Bangalore' ,'Finance' , 100000 , TO_DATE('2005-01-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS') );
+VALUES (2, 'Vinod',    'Indore' , 'IT' , 50000 , TO_DATE('2010-01-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'));
+VALUES (3, 'Nitin',    'Mumbai' , 'IT' , 50000  , TO_DATE('2010-01-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'));
+VALUES (4, 'Abhishek', 'Patna'  , 'IT' , 20000  , TO_DATE('2015-01-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'));
+VALUES (5, 'Saurav',   'Patna'  , 'IT' , 10000  , TO_DATE('2017-01-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'));
+VALUES(6, 'Gaurav',   'Patna'  , 'IT' , 5000   , TO_DATE('2017-01-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'));
+
+
+
+----------------------------------------------- MongoDB Insert Script -----------------------------------------------
+
+db.employee.insertMany( [
+{  _id : 1,   name  : "Naveen",    city : "Bangalore" ,    department :  "Finance"  , salary :  100000  , "hireDate" : ISODate("2005-01-01T08:00:00Z") },
+{  _id : 2,   name  : "Vinod",     city : "Indore"    ,    department :  "IT"       , salary :  50000   , "hireDate" : ISODate("2010-01-01T08:00:00Z") },
+{  _id : 3,   name  : "Nitin",     city : "Mumbai"    ,    department :  "IT"       , salary :  50000   , "hireDate" : ISODate("2010-01-01T08:00:00Z") },
+{  _id : 4,   name  : "Abhishek",  city : "Patna"     ,    department :  "IT"       , salary :  20000   , "hireDate" : ISODate("2015-01-01T08:00:00Z") },
+{  _id : 5,   name  : "Saurav",    city : "Patna"     ,    department :  "HR"       , salary :  10000   , "hireDate" : ISODate("2017-01-01T08:00:00Z") },
+{  _id : 6,   name  : "Gaurav",    city : "Patna"     ,    department :  "HR"       , salary :  5000    , "hireDate" : ISODate("2017-01-01T08:00:00Z") }
+])

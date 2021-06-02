@@ -1,0 +1,74 @@
+
+
+*########################################## 1.Modelling ONE-TO-ONE Association *#######################################
+
+-------------------------  1-I)Embedded Document --------------------------
+
+CREATE TABLE EMPLOYEE(
+    EMPLOYEE_ID  NUMBER(9) NOT NULL,
+    NAME         VARCHAR2(20),
+    STATE        VARCHAR2(20),
+    CITY         VARCHAR2(20),
+    LOCALITY     VARCHAR2(20)
+);
+
+INSERT INTO EMPLOYEE ( EMPLOYEE_ID, NAME ,STATE ,CITY , LOCALITY )
+Values (1, 'Abhishek', 'Karnataka', 'Bangalore','Bellandur');
+
+
+ -------------------------  1-II)Reference Document -------------------------
+ CREATE TABLE ADDRESS(
+    ADDRESS_ID   INT           PRIMARY KEY,
+    STATE        VARCHAR2(20),
+    CITY         VARCHAR2(20),
+    LOCALITY     VARCHAR2(20),
+    STREET       VARCHAR2(20),
+    PIN          NUMBER(6)
+);
+
+INSERT INTO ADDRESS ( ADDRESS_ID, STATE , CITY , LOCALITY , STREET , PIN )
+VALUES              (10, 'Karanataka' ,'Bangalore' , 'Bellandur' , '309  Genesis Apartment' , 560103);
+
+
+CREATE TABLE EMPLOYEE(
+    EMPLOYEE_ID     INT           PRIMARY KEY,
+    NAME            VARCHAR2(20),
+    ADDRESS_ID_FK   INT,
+    FOREIGN KEY (ADDRESS_ID_FK) REFERENCES ADDRESS (ADDRESS_ID)
+);
+
+INSERT INTO EMPLOYEE ( EMPLOYEE_ID, NAME , ADDRESS_ID_FK )
+VALUES (1, 'Abhishek' , 10 );
+
+
+
+DROP TABLE EMPLOYEE
+DROP TABLE ADDRESS
+
+
+*########################################## 1.Modelling ONE-TO-MANY Association *#######################################
+CREATE TABLE BLOGPOST(
+    BLOGPOST_ID   INT          PRIMARY KEY,
+    TITLE         VARCHAR2(20),
+    TEXT          VARCHAR2(250)
+);
+
+INSERT INTO BLOGPOST (BLOGPOST_ID , TITLE , TEXT )
+VALUES(1 ,'Java' , 'Why do Java developers wear glasses , because they dont C#')
+
+
+
+ CREATE TABLE COMMENTS(
+    COMMENT_ID   INT           PRIMARY KEY,
+    NAME         VARCHAR2(20),
+    CREATED_ON   VARCHAR2(20),
+    COMMENT_TEXT    VARCHAR2(250),
+    
+    BLOGPOST_ID_FK INT,
+    
+    FOREIGN KEY (BLOGPOST_ID_FK) REFERENCES BLOGPOST (BLOGPOST_ID)
+);
+INSERT INTO COMMENTS(COMMENT_ID , NAME , CREATED_ON ,COMMENT_TEXT ,BLOGPOST_ID_FK)
+VALUES(10,'Satya Nadella', '2018-01-01' ,'LOL' , 1)
+
+VALUES(20,'Joshua bloch', '2018-01-01' , 'Not so effective blog post , Dude you need medication' , 1)

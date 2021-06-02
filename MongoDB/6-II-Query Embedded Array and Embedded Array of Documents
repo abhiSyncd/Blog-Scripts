@@ -1,0 +1,50 @@
+db.employee.insertMany([
+//------------------- Employee 1 -----------------------------
+{
+   "_id"          :     1 ,
+   "name"         : "Abhishek", 
+   "designation"  : "Full Stack Developer",
+	  
+    "skills"      : [ "Angular" , "Node" , "Java" , "MongoDB" , "Oracle"],
+	
+    "projects"    : [ 
+        { "projectName": "project x", 
+          "manager" : "Mr Awesome",  
+          "teamNumber" : 5
+         }
+     ]
+},
+//------------------- Employee 2 -----------------------------
+{
+   "_id"          :    3 ,
+   "name"         : "Steve", 
+   "designation"  : "Programmer",
+	  
+    "skills"      : ["Java" , "Python"],
+	
+    "projects"    : [
+        { "projectName": "project yy",
+          "manager"    : "Mr Awesome",
+          "teamNumber" : 3
+        }               
+     ]
+	
+},
+//------------------- Employee 3 -----------------------------
+{
+   "_id"         :    2 ,
+   "name"        : "Tom", 
+   "designation" : "DBA",
+	  
+    "skills"     : ["Oracle" , "MongoDB"],
+	
+    "projects"   : [
+		{
+		  "projectName": "project zzz",
+		  "manager"    : "Mr Dull",
+		  "teamNumber" : 2
+		}
+  ]	
+}
+
+]) 

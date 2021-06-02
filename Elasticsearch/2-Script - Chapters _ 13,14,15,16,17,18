@@ -1,0 +1,112 @@
+
+################################################### SQL(Oracle) SCRIPTS ###################################################
+
+CREATE TABLE EMPLOYEE(
+    EMPLOYEE_ID  NUMBER(9) NOT NULL,
+    NAME         VARCHAR2(20),
+    CITY         VARCHAR2(20),
+    SALARY       NUMBER(9),
+    HIREDATE     TIMESTAMP,
+    DEPARTMENT   VARCHAR2(20)
+);
+
+INSERT INTO EMPLOYEE ( EMPLOYEE_ID , NAME , CITY , SALARY , HIREDATE , DEPARTMENT )
+VALUES (1, 'Naveen', 'Bangalore' , 100000 , TO_DATE('2005-01-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS') , 'Finance' );
+
+(2, 'Vinod',     'Indore' ,  50000 ,  TO_DATE('2010-01-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'IT');
+(3, 'Nitin',     'Mumbai' ,  50000 ,  TO_DATE('2010-01-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'IT');
+(4, 'Abhishek',  'Patna'  ,  20000 ,  TO_DATE('2015-01-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'IT');
+(5, 'Saurav',    'Patna'  ,  10000  ,  TO_DATE('2017-01-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'HR');
+(6, 'Gaurav',    'Patna'  ,  5000  ,  TO_DATE('2017-01-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'HR');
+(7, 'Santosh-Intern', null , null , null , null );
+
+
+################################################### ELASTCISEARCH SCRIPTS ###################################################
+
+//i-Create Index(Database) of name 'company'
+PUT company
+
+
+//ii-Create Type(Table) and map Fields(Column)
+PUT company/employee/_mapping
+{
+  "properties": {
+        "name"       : {"type": "text"},
+        "city"       : {"type": "text",
+                        "fields": {
+                           "keyword": { 
+                            "type":  "keyword"
+                           }
+                         }
+                       },
+        "salary"     : {"type": "long"},
+        "hireDate"   : {"type": "date"},
+        "department" : {"type": "keyword"}
+      }
+}
+
+//iii-Insert Documents(Rows)
+
+PUT /company/employee/1
+{
+    "name"        : "Naveen",
+    "city"        : "Bangalore" ,
+    "salary"      :  100000,
+    "hireDate"    : "2005-01-01",
+    "department"  : "Finance"  
+}
+
+PUT /company/employee/2
+{
+    "name"        : "Vinod",
+    "city"        : "Indore" ,
+    "salary"      :  50000,
+    "hireDate"    : "2010-01-01",
+    "department"  : "IT"   
+}
+
+PUT /company/employee/3
+{
+    "name"        : "Nitin",
+    "city"        : "Mumbai" ,
+    "salary"      :  50000,
+    "hireDate"    : "2010-01-01",
+    "department"  : "IT"  
+}
+
+PUT /company/employee/4
+{
+    "name"        : "Abhishek",
+    "city"        : "Patna" ,
+    "salary"      :  20000,
+    "hireDate"    : "2015-01-01",
+    "department"  : "IT"   
+}
+
+PUT /company/employee/5
+{
+    "name"        : "Saurav",
+    "city"        : "Patna" ,
+    "salary"      :  10000,
+    "hireDate"    : "2017-01-01",
+    "department"  : "HR"
+}
+
+
+PUT /company/employee/6
+{
+    "name"        : "Gaurav",
+    "city"        : "Patna" ,
+    "salary"      :  5000,
+    "hireDate"    : "2017-01-01",
+    "department"  : "HR"  
+}
+
+PUT /company/employee/7
+{
+    "name"        : "Santosh-Intern",
+    "city"        :  null,
+    "salary"      :  null,
+    "hireDate"    :  null,
+    "department"  :  null 
+}

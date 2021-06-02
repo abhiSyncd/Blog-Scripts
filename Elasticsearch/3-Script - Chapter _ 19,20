@@ -1,0 +1,29 @@
+PUT vehicles
+
+PUT /vehicles/cars/_mapping
+{
+  "properties": {
+  "company"  : {"type": "keyword"}, 
+  "color"    : {"type": "keyword"},
+  "price"    : {"type": "long"},
+  "soldDate" : {"type": "date"}
+}
+}
+
+PUT /vehicles/cars/1
+{ "company" : "Mercedes" , "color" : "White" ,  "price" : 500000  ,  "soldDate" : "2018-11-25" }
+
+PUT /vehicles/cars/2
+{ "company" : "Mercedes" , "color" : "Red"   ,  "price" : 300000  ,  "soldDate" : "2018-12-25" }
+
+PUT /vehicles/cars/3
+{ "company"  : "Audi"    , "color" : "White" ,  "price" : 200000  ,  "soldDate" : "2017-05-25" }
+
+PUT /vehicles/cars/4
+{ "company"  : "Audi"    , "color" : "red"   ,  "price" : 100000  ,  "soldDate" : "2017-05-25" }
+
+PUT /vehicles/cars/5
+{ "company"  : "Honda"   , "color" : "white" ,   "price" : 50000   ,  "soldDate" : "2016-05-25" }
+
+PUT /vehicles/cars/6
+{ "company"  : "Maruti"  , "color" : "white" ,   "price" : null    ,  "soldDate" : null }
