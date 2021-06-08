@@ -109,15 +109,4 @@ PUT /courses/subject/4
 
 
 
-PUT /courses/subject/5
-{
-    "course_name"        : "Mathematics",
-    "course_start_date"  : "2016-01-01",
-    "course_description" : "Study Of Algebra,Calculus,Trignometry",
-    "students_enrolled"  : 20,
-    "professor": {
-        "name"       : "Aryabhatta",
-        "department" : "Math",
-        "email"      : ""
-        }
-}  
+
