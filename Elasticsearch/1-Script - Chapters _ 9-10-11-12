@@ -2,6 +2,26 @@
 
 ############################################ Oracle  Insert Scripts ############################################
 
+CREATE TABLE SUBJECT
+(
+    SUBJECT_ID             NUMBER(9)      NOT NULL   PRIMARY KEY,
+    COURSE_NAME            VARCHAR2(50),
+    COURSE_START_DATE      TIMESTAMP,
+    COURSE_DESCRIPTION     VARCHAR2(100),
+    STUDENTS_ENROLLED      NUMBER(5),
+    PROFESSOR_NAME         VARCHAR2(20),
+    PROFESSOR_DEPARTMENT   VARCHAR2(20),
+    PROFESSOR_EMAIL        VARCHAR2(20)
+    
+);
+
+INSERT INTO SUBJECT ( SUBJECT_ID, COURSE_NAME ,COURSE_START_DATE  ,COURSE_DESCRIPTION , STUDENTS_ENROLLED  , PROFESSOR_NAME ,PROFESSOR_DEPARTMENT,PROFESSOR_EMAIL)
+VALUES (1, 'Data Structure And Algorithms' , TO_DATE('2019-01-01', 'YYYY-MM-DD') , 'Study Of Data Structures In Java Programming' , 40 , 'Cormen' , 'CS' , 'cormen@mit.com' );
+
+VALUES (2, 'Computer Programming' , TO_DATE('2018-01-01', 'YYYY-MM-DD') , '' , 35 , 'Dennis Ritchie' , 'CS' , 'dennis@mit.com' );
+VALUES (3, 'Computer Networks' , TO_DATE('2018-01-01', 'YYYY-MM-DD') , 'Study Of Sharing Resources Among Computers' , 30 , 'Andrew Tanenbaum' , 'IT' , 'andrew@mit.com' );
+VALUES (4, 'Digital Electronics' , TO_DATE('2017-01-01', 'YYYY-MM-DD') , 'Study Of Digital Signals' , 25 , 'Tesla' , 'ECE' , 'tesla@mit.com' );
+VALUES (5, 'Mathematics' , TO_DATE('2016-01-01', 'YYYY-MM-DD') , 'Study Of Algebra,Calculus,Trignometry' , 20 , 'Aryabhatta' , 'Math' , '' );
 
 
 ############################################ Elastcisearch Scripts ############################################
