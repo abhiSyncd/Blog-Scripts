@@ -1,6 +1,24 @@
 
 ################################################### SQL(Oracle) SCRIPTS ###################################################
 
+CREATE TABLE EMPLOYEE(
+    EMPLOYEE_ID  NUMBER(9) NOT NULL,
+    NAME         VARCHAR2(20),
+    CITY         VARCHAR2(20),
+    SALARY       NUMBER(9),
+    HIREDATE     TIMESTAMP,
+    DEPARTMENT   VARCHAR2(20)
+);
+
+INSERT INTO EMPLOYEE ( EMPLOYEE_ID , NAME , CITY , SALARY , HIREDATE , DEPARTMENT )
+VALUES (1, 'Naveen', 'Bangalore' , 100000 , TO_DATE('2005-01-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS') , 'Finance' );
+
+(2, 'Vinod',     'Indore' ,  50000 ,  TO_DATE('2010-01-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'IT');
+(3, 'Nitin',     'Mumbai' ,  50000 ,  TO_DATE('2010-01-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'IT');
+(4, 'Abhishek',  'Patna'  ,  20000 ,  TO_DATE('2015-01-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'IT');
+(5, 'Saurav',    'Patna'  ,  10000  ,  TO_DATE('2017-01-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'HR');
+(6, 'Gaurav',    'Patna'  ,  5000  ,  TO_DATE('2017-01-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'HR');
+(7, 'Santosh-Intern', null , null , null , null );
 
 
 ################################################### ELASTCISEARCH SCRIPTS ###################################################
