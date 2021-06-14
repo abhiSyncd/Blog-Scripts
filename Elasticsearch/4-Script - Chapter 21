@@ -135,13 +135,3 @@ PUT company/departmentWithEmployees/12?routing=2&refresh
 
 
 
-//Inserting Employee 4 in departmentEmployee _id = 12 
-PUT company/departmentWithEmployees/13?routing=2&refresh
-{
-  "employeeName": "Abhishek",
-  "employeeCity": "Patna",
-  "joinField": {
-    "name" : "employee",
-    "parent": "2"
-  }
-}
