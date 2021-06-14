@@ -1,7 +1,7 @@
 
 
 ###################### 1-Create index ######################
-PUT /restaurants/
+
 
 
 ###################### 2-Create type and field mapping ######################
