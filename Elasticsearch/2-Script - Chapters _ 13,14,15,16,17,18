@@ -102,4 +102,12 @@ PUT /company/employee/6
     "department"  : "HR"  
 }
 
+PUT /company/employee/7
+{
+    "name"        : "Santosh-Intern",
+    "city"        :  null,
+    "salary"      :  null,
+    "hireDate"    :  null,
+    "department"  :  null 
+}
 
