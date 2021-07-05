@@ -1,3 +1,3 @@
-# Blog-codingkindl-Scripts
+# Blog-codingkindle-Scripts
 
-## [Blog](https://www.codingkindle.com/) 
+## [CODING Kindle](https://www.codingkindle.com/) 
