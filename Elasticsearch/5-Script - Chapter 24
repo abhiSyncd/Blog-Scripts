@@ -5,7 +5,7 @@
 PUT /restaurants/
 
 ###################### 2-Create type and field mapping ######################
-PUT /restaurants/indian_restaurants/_mapping
+PUT /restaurants/_mapping
 {
   "properties": {
       "hotel_name"     : {  "type": "text"}, 
@@ -43,7 +43,7 @@ PUT /restaurants/indian_restaurants/_mapping
 ###################### 3-Inserting Documents ######################
 
 
-PUT restaurants/indian_restaurants/1
+PUT restaurants/_doc/1
 {
   "hotel_name": "Modak- (Bellandur-Region + Have-Paneer + Pure-Veg, Online-Payment-Available)",
   "hotel_region": "Bellandur",
@@ -82,7 +82,7 @@ PUT restaurants/indian_restaurants/1
 
 
 -------------------------------------------------------------
-PUT restaurants/indian_restaurants/2
+PUT restaurants/_doc/2
 {
   "hotel_name": "Murli- (Bellandur-Region + Have-Paneer + Pure-Veg, Online-Payment-Available)",
   "hotel_region": "Bellandur",
@@ -122,7 +122,7 @@ PUT restaurants/indian_restaurants/2
 
 
 -------------------------------------------------------------
-PUT restaurants/indian_restaurants/3
+PUT restaurants/_doc/3
 {
   "hotel_name": "Lassi Shop- (Bellandur-Region + Have-Paneer + Pure-Veg, Online-Payment-Available)",
   "hotel_region": "Bellandur",
@@ -161,7 +161,7 @@ PUT restaurants/indian_restaurants/3
 
 
 -------------------------------------------------------------
-PUT restaurants/indian_restaurants/4
+PUT restaurants/_doc/4
 {
   "hotel_name": "S Popular Frozen Stone - (Bellandur-Region + Have-Paneer + Pure-Veg, Online-Payment-Available)",
   "hotel_region": "Bellandur",
@@ -201,7 +201,7 @@ PUT restaurants/indian_restaurants/4
 
 ----------------------------------------------------------
 
-PUT restaurants/indian_restaurants/5
+PUT restaurants/_doc/5
 {
   "hotel_name": "Flying Cup - (Bellandur-Region + Have-Paneer + Not-Pure-Veg + No-Online-Payment-Available)",
   "hotel_region": "Bellandur",
@@ -242,7 +242,7 @@ PUT restaurants/indian_restaurants/5
 
 
 ------------------------------------------------------------
-PUT restaurants/indian_restaurants/6
+PUT restaurants/_doc/6
 {
   "hotel_name": "Fresh Menu - (Bellandur-Region + Have-Paneer + Not-Pure-Veg +  Online-Payment-Available)",
   "hotel_region": "Bellandur",
@@ -282,7 +282,7 @@ PUT restaurants/indian_restaurants/6
 
 -------------------------------------------------------------
 
-PUT restaurants/indian_restaurants/7
+PUT restaurants/_doc/7
 {
   "hotel_name": "Tipsy Bull  - (Bellandur-Region +  No-Paneer + Not-Pure-Veg + Online-Payment-Available)",
   "hotel_region": "Bellandur",
@@ -321,7 +321,7 @@ PUT restaurants/indian_restaurants/7
 
 ----------------------------------------------------------
 
-PUT restaurants/indian_restaurants/8
+PUT restaurants/_doc/8
 {
   "hotel_name": "Srinathji's - (Bellandur-Region + Have-Paneer + Not-Pure-Veg + No-Online-Payment-Available)",
   "hotel_region": "Bellandur",
@@ -361,7 +361,7 @@ PUT restaurants/indian_restaurants/8
 
 ----------------------------------------------------------
 
-PUT restaurants/indian_restaurants/9
+PUT restaurants/_doc/9
 {
   "hotel_name": "Hot and Cold Bakery - (Not In Bellandur region)",
   "hotel_region": "BTM",
