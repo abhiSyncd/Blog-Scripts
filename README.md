@@ -1,3 +1,3 @@
-# Blog-CodingAvocados-Scripts
+# Blog-codingkindl-Scripts
 
-## URL :
+## [Blog](https://www.codingkindle.com/) 
