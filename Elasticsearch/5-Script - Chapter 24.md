@@ -1,10 +1,10 @@
 
 
-# 1-Create index 
+## 1-Create Index 
 
 PUT /restaurants/
 
-# 2-Create type and field mapping
+## 2-Create Mapping
 
     PUT /restaurants/_mapping
     {
@@ -41,7 +41,7 @@ PUT /restaurants/
        }
     }
 
-# 3-Inserting Documents
+## 3-Insert Documents
 
 
     PUT restaurants/_doc/1
